@@ -8,7 +8,7 @@
 -export([parse/1]).
 -on_load(init/0).
 
--define(APPNAME, graphql_parser_nif).
+-define(APPNAME, graphql_parser).
 -define(LIBNAME, graphql_parser).
 
 parse(_) ->
