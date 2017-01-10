@@ -1,0 +1,17 @@
+{application, graphql_parser,
+ [{description, "An OTP library"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, [
+   graphql_parser
+  ]},
+
+  {maintainers, []},
+  {licenses, []},
+  {links, []}
+ ]}.
