@@ -1,6 +1,6 @@
 %%%%
 % NIF Module wrapping libgraphqlparser.
-% Do not use this module directly. Use GraphQL.Parser module instead.
+% Do not use this module directly. Use graphql_parser module instead.
 %%%%
 
 -module(graphql_parser_nif).

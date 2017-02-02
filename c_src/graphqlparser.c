@@ -23,9 +23,10 @@ int main(int argc, char *argv[])
     ast = graphql_parse_string(argv[1], &error);
     if (ast == NULL)
     {
-        if (strlen(error))
+        if (error && strlen(error))
         {
             printf("%s\n", error);
+            free((void*)error);
             return 2;
         }
         else
