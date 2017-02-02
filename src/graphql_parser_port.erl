@@ -27,8 +27,8 @@ parse(Q)->
 
   ParsedQ = run(Port, [], <<>>),
 
-  erlang:port_close(Port),
-
+%%  erlang:port_close(Port),
+%%  io:format("~nCLOSE PORT!~n"),
   ParsedQ.
 
 
