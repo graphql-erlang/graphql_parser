@@ -7,9 +7,14 @@
 ]).
 
 
--spec parse(binary()) -> map().
-parse(RawGraphqlQuery)->
-  case graphql_parser_nif:parse(RawGraphqlQuery) of
-    {ok, Json} -> {ok, jsx:decode(Json, [return_maps])};
-    {error, Error}-> {error, Error}
-  end.
+-spec parse(binary() | list()) -> map().
+parse(Q) when is_binary(Q) ->
+  ListQ = binary_to_list(Q),
+  parse_list(ListQ);
+parse(Q) when is_list(Q)->
+  parse_list(Q).
+
+-spec parse_list(list()) -> map().
+parse_list(Document)->
+  {ok, Tokens, _} = graphql_lexer:string(Document),
+  graphql_parser_yecc:parse(Tokens).

@@ -15,3 +15,6 @@ erl_crash.dump
 logs
 _build
 .idea
+
+src/graphql_parser_yecc.erl
+src/graphql_lexer.erl
