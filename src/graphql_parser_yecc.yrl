@@ -35,8 +35,8 @@ OperationType -> 'query' : extract_atom('$1').
 OperationType -> 'mutation' : extract_atom('$1').
 
 OperationDefinition -> SelectionSet : build_ast_node('OperationDefinition', #{'operation' => 'query', 'selectionSet' => '$1'}).
-OperationDefinition -> OperationType SelectionSet : build_ast_node('OperationDefinition', #{'operation' => 'query', 'selectionSet' => '$2'}).
-OperationDefinition -> OperationType VariableDefinitions SelectionSet : build_ast_node('OperationDefinition', #{'operation' => 'query', 'variableDefinitions' => '$2', 'selectionSet' => '$3'}).
+OperationDefinition -> OperationType SelectionSet : build_ast_node('OperationDefinition', #{'operation' => '$1', 'selectionSet' => '$2'}).
+OperationDefinition -> OperationType VariableDefinitions SelectionSet : build_ast_node('OperationDefinition', #{'operation' => '$1', 'variableDefinitions' => '$2', 'selectionSet' => '$3'}).
 OperationDefinition -> OperationType Name SelectionSet : build_ast_node('OperationDefinition', #{'operation' => '$1', 'name' => extract_name('$2'), 'selectionSet' => '$3'}).
 OperationDefinition -> OperationType Name VariableDefinitions SelectionSet : build_ast_node('OperationDefinition', #{'operation' => '$1', 'name' => extract_name('$2'), 'variableDefinitions' => '$3', 'selectionSet' => '$4'}).
 OperationDefinition -> OperationType Name Directives SelectionSet : build_ast_node('OperationDefinition', #{'operation' => '$1', 'name' => extract_name('$2'), 'directives' => '$3', 'selectionSet' => '$4'}).
